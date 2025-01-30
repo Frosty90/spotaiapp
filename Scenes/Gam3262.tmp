@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://bicdp17jtgvgv"]
+
+[ext_resource type="Script" path="res://Scripts/ResizeTestScript.gd" id="1_ksdmu"]
+[ext_resource type="Texture2D" uid="uid://blyd5nkmgl848" path="res://Resources/PlaceholderImage.png" id="1_mr10f"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="MainMenuScreen" type="CanvasGroup" parent="."]
+
+[node name="GameConfigScreen" type="CanvasGroup" parent="."]
+
+[node name="GameScreen" type="CanvasGroup" parent="."]
+
+[node name="GameManager" type="Node" parent="GameScreen"]
+
+[node name="ImageContainer" type="HBoxContainer" parent="GameScreen/GameManager"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -150.0
+offset_right = 900.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ksdmu")
+
+[node name="ImageA" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_mr10f")
+expand_mode = 2
+
+[node name="ButtonA" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageA"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 285.0
+offset_bottom = 285.0
+action_mode = 0
+
+[node name="ImageB" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonB" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageB"]
+show_behind_parent = true
+offset_right = 285.0
+offset_bottom = 285.0
+action_mode = 0
+
+[node name="ImageC" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+visible = false
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonC" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageC"]
+show_behind_parent = true
+offset_right = 285.0
+offset_bottom = 285.0
+action_mode = 0
+
+[node name="ImageD" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+visible = false
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonD" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageD"]
+show_behind_parent = true
+offset_right = 285.0
+offset_bottom = 285.0
+action_mode = 0

@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://bicdp17jtgvgv"]
+
+[ext_resource type="Texture2D" uid="uid://blyd5nkmgl848" path="res://Textures/PlaceholderImage.png" id="1_mr10f"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vdkgp"]
+[ext_resource type="Resource" uid="uid://cxnbne7pmir4w" path="res://Themes/CollectionDummy/IC_TestCollection.tres" id="2_ohhvk"]
+
+[sub_resource type="Curve" id="Curve_lyj4u"]
+_data = [Vector2(0.0244898, 0.0714285), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_5a2jc"]
+curve = SubResource("Curve_lyj4u")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g2lm6"]
+diffuse_texture = SubResource("CurveTexture_5a2jc")
+
+[node name="GameScene" type="Node2D"]
+
+[node name="MainMenuScreen" type="CanvasGroup" parent="."]
+
+[node name="GameConfigScreen" type="CanvasGroup" parent="."]
+
+[node name="GameScreen" type="CanvasGroup" parent="."]
+
+[node name="GameManager" type="Node" parent="GameScreen"]
+script = ExtResource("1_vdkgp")
+ImageCollection = ExtResource("2_ohhvk")
+
+[node name="TextureRect" type="TextureRect" parent="GameScreen/GameManager"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -156.0
+offset_right = 960.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_g2lm6")
+
+[node name="ImageContainer" type="HBoxContainer" parent="GameScreen/GameManager"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -150.0
+offset_right = 900.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImageA" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+texture = ExtResource("1_mr10f")
+expand_mode = 2
+
+[node name="ButtonA" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageA"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+action_mode = 0
+
+[node name="ImageB" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonB" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageB"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+action_mode = 0
+
+[node name="ImageC" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonC" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageC"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[node name="ImageD" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_mr10f")
+expand_mode = 3
+
+[node name="ButtonD" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageD"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[node name="GamePrompt" type="Label" parent="GameScreen/GameManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 60
+text = "Prompt Goes Here!
+"
+horizontal_alignment = 1
+
+[node name="GameTimerText" type="Label" parent="GameScreen/GameManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 118.0
+offset_right = -1677.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 60

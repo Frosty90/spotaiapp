@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cxnbne7pmir4w"]
+
+[ext_resource type="Script" path="res://Scripts/ImageCollection.gd" id="1_de35x"]
+[ext_resource type="Resource" uid="uid://cam1lk1u3ksle" path="res://Themes/CollectionDummy/SetDummyCats/IS_DummyCats.tres" id="2_ivaqh"]
+[ext_resource type="Resource" uid="uid://b34o4i0rh8x7c" path="res://Themes/CollectionDummy/SetDummyColors/IS_DummyColors.tres" id="3_54ylq"]
+
+[resource]
+script = ExtResource("1_de35x")
+test = Array[Resource]([ExtResource("2_ivaqh"), ExtResource("3_54ylq")])
