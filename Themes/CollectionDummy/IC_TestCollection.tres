@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cxnbne7pmir4w"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cxnbne7pmir4w"]
 
-[ext_resource type="Script" path="res://Scripts/ImageCollection.gd" id="1_de35x"]
-[ext_resource type="Resource" uid="uid://cam1lk1u3ksle" path="res://Themes/CollectionDummy/SetDummyCats/IS_DummyCats.tres" id="2_ivaqh"]
-[ext_resource type="Resource" uid="uid://b34o4i0rh8x7c" path="res://Themes/CollectionDummy/SetDummyColors/IS_DummyColors.tres" id="3_54ylq"]
+[ext_resource type="Script" path="res://Scripts/Images/ImageCollection.gd" id="1_rlous"]
+[ext_resource type="Resource" uid="uid://cam1lk1u3ksle" path="res://Themes/CollectionDummy/SetDummyCats/IS_DummyCats.tres" id="2_lhobt"]
+[ext_resource type="Resource" uid="uid://cko7wo6etsibe" path="res://Themes/CollectionDummy/SetDummyColleges/IS_DummyColleges.tres" id="3_1ek8f"]
+[ext_resource type="Resource" uid="uid://b34o4i0rh8x7c" path="res://Themes/CollectionDummy/SetDummyColors/IS_DummyColors.tres" id="4_mbgwl"]
 
 [resource]
-script = ExtResource("1_de35x")
-test = Array[Resource]([ExtResource("2_ivaqh"), ExtResource("3_54ylq")])
+script = ExtResource("1_rlous")
+test = Array[Resource]([ExtResource("2_lhobt"), ExtResource("3_1ek8f"), ExtResource("4_mbgwl")])

@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bicdp17jtgvgv"]
+[gd_scene load_steps=12 format=3 uid="uid://bicdp17jtgvgv"]
 
 [ext_resource type="Texture2D" uid="uid://blyd5nkmgl848" path="res://Textures/PlaceholderImage.png" id="1_mr10f"]
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_vdkgp"]
+[ext_resource type="Script" path="res://Scripts/Game/GameOperationsScript.gd" id="1_poyv7"]
+[ext_resource type="Script" path="res://Scripts/Game/GameManager.gd" id="1_vdkgp"]
+[ext_resource type="Script" path="res://Scripts/ScreenManagementScript.gd" id="2_2co6t"]
 [ext_resource type="Resource" uid="uid://cxnbne7pmir4w" path="res://Themes/CollectionDummy/IC_TestCollection.tres" id="2_ohhvk"]
+[ext_resource type="Script" path="res://Scripts/ButtonSelectScript.gd" id="3_evy3m"]
+[ext_resource type="Resource" uid="uid://icv80l277aga" path="res://Scripts/Diff_Hard.tres" id="3_ql3d5"]
+[ext_resource type="Script" path="res://Scripts/LabelScoreScript.gd" id="8_50iua"]
 
 [sub_resource type="Curve" id="Curve_lyj4u"]
 _data = [Vector2(0.0244898, 0.0714285), 0.0, 0.0, 0, 0]
@@ -15,52 +20,146 @@ curve = SubResource("Curve_lyj4u")
 diffuse_texture = SubResource("CurveTexture_5a2jc")
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_poyv7")
 
-[node name="MainMenuScreen" type="CanvasGroup" parent="."]
+[node name="MainMenuScreen" type="CanvasLayer" parent="." node_paths=PackedStringArray("GameSceneRoot")]
+visible = false
+script = ExtResource("2_2co6t")
+GameSceneRoot = NodePath("..")
 
-[node name="GameConfigScreen" type="CanvasGroup" parent="."]
+[node name="Label" type="Label" parent="MainMenuScreen"]
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 1897.0
+offset_bottom = 149.0
+text = "AI Found You
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="GameScreen" type="CanvasGroup" parent="."]
-
-[node name="GameManager" type="Node" parent="GameScreen"]
-script = ExtResource("1_vdkgp")
-ImageCollection = ExtResource("2_ohhvk")
-
-[node name="TextureRect" type="TextureRect" parent="GameScreen/GameManager"]
+[node name="Button" type="Button" parent="MainMenuScreen" node_paths=PackedStringArray("GameSceneRoot")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -156.0
-offset_right = 960.0
-offset_bottom = 158.0
+offset_left = -301.5
+offset_top = -178.0
+offset_right = 301.5
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 1
+
+[node name="Button2" type="Button" parent="MainMenuScreen" node_paths=PackedStringArray("GameSceneRoot")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -52.0
+offset_right = 301.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AI Tips"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 1
+
+[node name="Button3" type="Button" parent="MainMenuScreen" node_paths=PackedStringArray("GameSceneRoot")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = 72.0
+offset_right = 301.5
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "View Scores"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 1
+
+[node name="GameConfigScreen" type="CanvasLayer" parent="." node_paths=PackedStringArray("GameSceneRoot")]
+visible = false
+script = ExtResource("2_2co6t")
+ViewportID = 1
+GameSceneRoot = NodePath("..")
+
+[node name="Label" type="Label" parent="GameConfigScreen"]
+offset_left = 711.0
+offset_top = 83.0
+offset_right = 799.0
+offset_bottom = 106.0
+text = "Game Config
+"
+
+[node name="Button" type="Button" parent="GameConfigScreen" node_paths=PackedStringArray("GameSceneRoot")]
+offset_left = 667.0
+offset_top = 168.0
+offset_right = 820.0
+offset_bottom = 275.0
+text = "Start Game
+"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 2
+
+[node name="GameplayScreen" type="CanvasLayer" parent="." node_paths=PackedStringArray("GameSceneRoot")]
+visible = false
+script = ExtResource("2_2co6t")
+ViewportID = 2
+GameSceneRoot = NodePath("..")
+
+[node name="GameManager" type="Node2D" parent="GameplayScreen" node_paths=PackedStringArray("GameSceneRoot")]
+script = ExtResource("1_vdkgp")
+ImageCollection = ExtResource("2_ohhvk")
+DifficultySetting = ExtResource("3_ql3d5")
+GameSceneRoot = NodePath("../..")
+
+[node name="TextureRect" type="TextureRect" parent="GameplayScreen/GameManager"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 384.0
+offset_right = 1920.0
+offset_bottom = 698.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_g2lm6")
 
-[node name="ImageContainer" type="HBoxContainer" parent="GameScreen/GameManager"]
+[node name="ImageContainer" type="HBoxContainer" parent="GameplayScreen/GameManager"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -900.0
-offset_top = -150.0
-offset_right = 900.0
-offset_bottom = 150.0
+offset_left = 60.0
+offset_top = 390.0
+offset_right = 1860.0
+offset_bottom = 690.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ImageA" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+[node name="ImageA" type="TextureRect" parent="GameplayScreen/GameManager/ImageContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
 texture = ExtResource("1_mr10f")
 expand_mode = 2
 
-[node name="ButtonA" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageA"]
+[node name="ButtonA" type="Button" parent="GameplayScreen/GameManager/ImageContainer/ImageA"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -71,14 +170,14 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 action_mode = 0
 
-[node name="ImageB" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+[node name="ImageB" type="TextureRect" parent="GameplayScreen/GameManager/ImageContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 2
 texture = ExtResource("1_mr10f")
 expand_mode = 3
 
-[node name="ButtonB" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageB"]
+[node name="ButtonB" type="Button" parent="GameplayScreen/GameManager/ImageContainer/ImageB"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -89,14 +188,14 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 action_mode = 0
 
-[node name="ImageC" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+[node name="ImageC" type="TextureRect" parent="GameplayScreen/GameManager/ImageContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("1_mr10f")
 expand_mode = 3
 
-[node name="ButtonC" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageC"]
+[node name="ButtonC" type="Button" parent="GameplayScreen/GameManager/ImageContainer/ImageC"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -106,14 +205,14 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 
-[node name="ImageD" type="TextureRect" parent="GameScreen/GameManager/ImageContainer"]
+[node name="ImageD" type="TextureRect" parent="GameplayScreen/GameManager/ImageContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 6
 texture = ExtResource("1_mr10f")
 expand_mode = 3
 
-[node name="ButtonD" type="Button" parent="GameScreen/GameManager/ImageContainer/ImageD"]
+[node name="ButtonD" type="Button" parent="GameplayScreen/GameManager/ImageContainer/ImageD"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -123,9 +222,10 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 
-[node name="GamePrompt" type="Label" parent="GameScreen/GameManager"]
+[node name="GamePrompt" type="Label" parent="GameplayScreen/GameManager"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 1923.0
 offset_bottom = 195.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 25
@@ -134,12 +234,93 @@ text = "Prompt Goes Here!
 "
 horizontal_alignment = 1
 
-[node name="GameTimerText" type="Label" parent="GameScreen/GameManager"]
+[node name="GameLives" type="Label" parent="GameplayScreen/GameManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 90.0
+offset_top = 148.0
+offset_right = 91.0
+offset_bottom = 231.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 60
+
+[node name="GameScore" type="Label" parent="GameplayScreen/GameManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 119.0
+offset_top = 78.0
+offset_right = 120.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 60
+
+[node name="GameTimerText" type="Label" parent="GameplayScreen/GameManager"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 118.0
-offset_right = -1677.0
+offset_right = 119.0
 offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/font_size = 60
+
+[node name="GameEndScreen" type="CanvasLayer" parent="." node_paths=PackedStringArray("GameSceneRoot")]
+script = ExtResource("2_2co6t")
+ViewportID = 3
+GameSceneRoot = NodePath("..")
+
+[node name="Label" type="Label" parent="GameEndScreen"]
+offset_left = 711.0
+offset_top = 83.0
+offset_right = 799.0
+offset_bottom = 106.0
+text = "Game End
+
+"
+
+[node name="Button" type="Button" parent="GameEndScreen" node_paths=PackedStringArray("GameSceneRoot")]
+offset_left = 667.0
+offset_top = 168.0
+offset_right = 820.0
+offset_bottom = 275.0
+text = "Retry Quiz
+
+"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 2
+
+[node name="Button2" type="Button" parent="GameEndScreen" node_paths=PackedStringArray("GameSceneRoot")]
+offset_left = 924.0
+offset_top = 166.0
+offset_right = 1077.0
+offset_bottom = 273.0
+text = "Game Config
+"
+script = ExtResource("3_evy3m")
+GameSceneRoot = NodePath("../..")
+NextScreenID = 1
+
+[node name="Label2" type="Label" parent="GameEndScreen" node_paths=PackedStringArray("GameSceneRoot")]
+offset_left = 932.0
+offset_top = 85.0
+offset_right = 1020.0
+offset_bottom = 134.0
+text = "Your Score:
+
+"
+script = ExtResource("8_50iua")
+GameSceneRoot = NodePath("../..")
+
+[connection signal="pressed" from="MainMenuScreen/Button" to="MainMenuScreen/Button" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuScreen/Button2" to="MainMenuScreen/Button2" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuScreen/Button3" to="MainMenuScreen/Button3" method="_on_pressed"]
+[connection signal="pressed" from="GameConfigScreen/Button" to="GameConfigScreen/Button" method="_on_pressed"]
+[connection signal="pressed" from="GameplayScreen/GameManager/ImageContainer/ImageA/ButtonA" to="GameplayScreen/GameManager" method="_on_button_a_pressed" binds= [NodePath("ImageContainer/ImageA")]]
+[connection signal="pressed" from="GameplayScreen/GameManager/ImageContainer/ImageB/ButtonB" to="GameplayScreen/GameManager" method="_on_button_b_pressed" binds= [NodePath("ImageContainer/ImageB")]]
+[connection signal="pressed" from="GameplayScreen/GameManager/ImageContainer/ImageC/ButtonC" to="GameplayScreen/GameManager" method="_on_button_c_pressed" binds= [NodePath("ImageContainer/ImageC")]]
+[connection signal="pressed" from="GameplayScreen/GameManager/ImageContainer/ImageD/ButtonD" to="GameplayScreen/GameManager" method="_on_button_d_pressed" binds= [NodePath("ImageContainer/ImageD")]]
+[connection signal="pressed" from="GameEndScreen/Button" to="GameEndScreen/Button" method="_on_pressed"]
+[connection signal="pressed" from="GameEndScreen/Button2" to="GameEndScreen/Button2" method="_on_pressed"]

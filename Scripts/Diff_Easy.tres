@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2ejw1ro5lpaw"]
+
+[ext_resource type="Script" path="res://Scripts/Game/GameDifficulty.gd" id="1_4tjbh"]
+
+[resource]
+script = ExtResource("1_4tjbh")
+DifficultyName = "Easy"
+QuestionAmount = 10
+StartingTime = 145
+StartingLives = -9223372036854775808
+ScoreMultiplier = 1.0

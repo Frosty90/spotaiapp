@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cko7wo6etsibe"]
+
+[ext_resource type="Texture2D" uid="uid://bhtcsfd5ffm0u" path="res://Themes/CollectionDummy/SetDummyColleges/Colleges_UTC.png" id="1_7j42v"]
+[ext_resource type="Texture2D" uid="uid://djau6ma3m8ee5" path="res://Themes/CollectionDummy/SetDummyColleges/Colleges_ETSU.png" id="2_p65h6"]
+[ext_resource type="Texture2D" uid="uid://ks5cxvybnpco" path="res://Themes/CollectionDummy/SetDummyColleges/Colleges_MTSU.png" id="3_g23pr"]
+[ext_resource type="Texture2D" uid="uid://da2omch84nagl" path="res://Themes/CollectionDummy/SetDummyColleges/Colleges_UTK.png" id="4_m2mty"]
+[ext_resource type="Script" path="res://Scripts/Images/ImageSetScript.gd" id="5_etwbv"]
+
+[resource]
+script = ExtResource("5_etwbv")
+SetName = "Colleges in Tennessee"
+PromptText = "Select UTC's campus!"
+CorrectImage = ExtResource("1_7j42v")
+WrongImages = Array[CompressedTexture2D]([ExtResource("2_p65h6"), ExtResource("3_g23pr"), ExtResource("4_m2mty")])

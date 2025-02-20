@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://7b805m7uard4"]
+
+[ext_resource type="Texture2D" uid="uid://dp83qvnbg5uvd" path="res://Themes/CollectionDummy/SetDummyColors/txt_DevGridPurple.png" id="1_eio7o"]
+[ext_resource type="Texture2D" uid="uid://umfwt0ev083o" path="res://Themes/CollectionDummy/SetDummyColors/txt_DevGridBlue.png" id="2_sg7lg"]
+[ext_resource type="Texture2D" uid="uid://f6w7sfrl2ocr" path="res://Themes/CollectionDummy/SetDummyColors/txt_DevGridYell.png" id="3_52u3d"]
+[ext_resource type="Texture2D" uid="uid://bvhwjfyerihaa" path="res://Themes/CollectionDummy/SetDummyColors/txt_DevGridRed.png" id="4_ecau8"]
+[ext_resource type="Script" path="res://Scripts/Images/ImageSetScript.gd" id="5_roy5t"]
+
+[resource]
+script = ExtResource("5_roy5t")
+SetName = "Colors"
+PromptText = "Select the purple box!"
+CorrectImage = ExtResource("1_eio7o")
+WrongImages = Array[CompressedTexture2D]([ExtResource("2_sg7lg"), ExtResource("3_52u3d"), ExtResource("4_ecau8")])

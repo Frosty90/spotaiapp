@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://icv80l277aga"]
+
+[ext_resource type="Script" path="res://Scripts/Game/GameDifficulty.gd" id="1_mcrf2"]
+
+[resource]
+script = ExtResource("1_mcrf2")
+DifficultyName = ""
+QuestionAmount = 15
+StartingTime = 60
+StartingLives = 15
+ScoreMultiplier = 1.5

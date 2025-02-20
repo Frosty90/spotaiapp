@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=6 format=3 uid="uid://cam1lk1u3ksle"]
 
-[ext_resource type="Script" path="res://Scripts/ImageSetScript.gd" id="1_3l34p"]
+[ext_resource type="Script" path="res://Scripts/Images/ImageSetScript.gd" id="1_3l34p"]
 [ext_resource type="Texture2D" uid="uid://cdhs0grnwksg" path="res://Themes/CollectionDummy/SetDummyCats/Cat_Charles.jpg" id="1_napmf"]
 [ext_resource type="Texture2D" uid="uid://csmwhxaktfsk0" path="res://Themes/CollectionDummy/SetDummyCats/Cat_Maine.jpg" id="2_a7ksy"]
 [ext_resource type="Texture2D" uid="uid://c565uff8hn210" path="res://Themes/CollectionDummy/SetDummyCats/Cat_orange.jpg" id="3_646wv"]
